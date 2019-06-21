@@ -46,13 +46,14 @@ install(DIRECTORY include/${PROJECT_NAME}/
 #  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
 if(BUILD_TESTING)
-  # find_package(roslint REQUIRED)
-  # roslint_cpp()
-  # roslint_python()
-  # roslint_add_test()
+  # Disable some broken tests for now
+  set(ament_cmake_copyright_FOUND TRUE)
+  set(ament_cmake_cppcheck_FOUND TRUE)
+  set(ament_cmake_cpplint_FOUND TRUE)
+  set(ament_cmake_uncrustify_FOUND TRUE)
 
-  # find_package(roslaunch REQUIRED)
-  # roslaunch_add_file_check(launch/teleop.launch)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
 
   # find_package(rostest REQUIRED)
   # include_directories(include ${catkin_INCLUDE_DIRS})
